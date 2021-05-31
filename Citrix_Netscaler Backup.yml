@@ -1,0 +1,28 @@
+#Netscaler Full backup
+---
+- name: multiple commands
+  hosts: Netscaler
+  gather_facts: false
+  connection: ssh
+  
+
+#raw module is used, can also use ansible adhoc command instead of playbook
+
+  tasks:
+      - name: multiple commands
+        raw: create system backup -level full
+
+
+       
+       
+       
+        register: print_output
+
+      - debug: var=print_output        
+             
+
+        
+                            
+             
+        
+       
