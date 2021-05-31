@@ -1,0 +1,28 @@
+# Citrix Netscaler Bandwidth Report 
+---
+- name: multiple commands
+  hosts: all
+  gather_facts: false
+  connection: ssh
+  
+
+  
+
+  tasks:
+      - name: multiple commands
+        raw: shell  "cd /var/nslog ; nsconmsg -K newnslog -g mbits -d past -s disptime=1 -s ratecount=1 | more > /tmp/test6.log ; nsconmsg -K newnslog -d current -g nic_err_rl_pkt_drops -s disptime=1 > /tmp/testi.log ; cd /tmp ; cat test6.log ; rm -rf test6.log ; cd /tmp ; cat testi.log ; rm -rf testi.log"
+
+
+       
+       
+       
+        register: print_output
+
+      - debug: var=print_output        
+             
+
+        
+                            
+             
+        
+       
